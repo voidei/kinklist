@@ -1,0 +1,242 @@
+# https://editorconfig.org
+
+#; standard, sets root dir
+root = true
+
+#; defaults for everything
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+tab_width = 4
+max_line_length = unset
+
+[CODEOWNERS]
+insert_final_newline = false
+
+[*.hbs]
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
+
+#; papyrus
+[*.psc]
+indent_size = 2
+tab_width = 2
+
+#; powershell
+[*.{ps1,ps{m,d}1}]
+indent_size = 2
+tab_width = 2
+
+#; standard shit for work inside of any gh repo
+[*.{md{,x},y{,a}ml}]
+end_of_line = crlf
+indent_size = 2
+tab_width = 2
+
+#; hopefully that handles any embedded markdown code xd
+#[*.{md,mdx}/*.{ts,tsx,cts,mts,typescript,js,jsx,cjs,mjs,javascript}]
+[*.{md,mdx}/*.*]
+end_of_line = unset
+indent_size = 4
+tab_width = 4
+
+#; shit for rust and python
+#; - unset everything because rustfmt/taplo/black is used instead of editorconfig
+[*.toml]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_size = 2
+tab_width = 2
+
+[*.{c,cc,cpp,h,hpp}]
+end_of_line = lf
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_size = 2
+tab_width = 2
+
+[*.{rs}]
+end_of_line = lf
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_size = 4
+tab_width = 4
+
+[*.rst]
+end_of_line = lf
+insert_final_newline = unset
+trim_trailing_whitespace = true
+indent_size = 3
+tab_width = 3
+
+[*.py{,c,i}]
+indent_size = 4
+tab_width = 4
+
+[*.ini]
+indent_size = 2
+tab_width = 2
+
+[{,{,*}.}{{flake,pep}8,pylintrc,MANIFEST,mypy,pytest,{,*[-_]}requirements,coveragerc}{,.{txt,ini,in}}]
+insert_final_newline = false
+end_of_line = lf
+indent_size = 2
+tab_width = 2
+
+[{[Dd]ockerfile,[Mm]akefile,*.mk}]
+end_of_line = lf
+insert_final_newline = false
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+[{*.haml,*.rb,*.gemspec,{[Rr]ake,[Gg]em,[Ss]teep,[Pp]roc}file}]
+end_of_line = crlf
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
+
+#; webdev shit
+
+#; html/css/scss/less/posthtml/whatever idfk
+[*.{{,post}html,{,post,c,sc,le}ss,styl{,us}}]
+#indent_style = tab
+indent_size = 2
+tab_width = 2
+
+# don't put a newline into svg or xml files, need to preserve size
+[*.{svg,xml}]
+end_of_line = lf
+insert_final_newline = false
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+tab_width = 2
+max_line_length = unset
+
+#; js/ts/json stuff
+
+#; redefining it all to ensure it all goes through to prettier and eslint
+[*.{{,c,m}js{,x},{,c,m}ts{,x}}] # prettier is useless :wtf:
+#[*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_size = 2
+tab_width = 2
+
+# json
+[*.{json{,c,5},code-{workspace,snippets},mcmeta}]
+indent_size = 2
+tab_width = 2
+
+# non-standard json / rcfiles
+[{,*}.{*rc,envinfo,tern-project,*-version}]
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
+
+[.{tool,node,py{,thon}}-version{,s}]
+indent_size = 2
+tab_width = 2
+
+#[.{release,prettier,babel,browserslist,importsort,*vm,tidier,ec}rc]
+#indent_style = space
+#indent_size = 2
+#tab_width = 2
+#[.{style,es}lintrc]
+#indent_style = space
+#indent_size = 2
+#tab_width = 2
+
+# unique shit
+
+[{,{,*}.}[cC][mM]ake{,[lL]ists,{-format}{,.*}.{txt,py,{,e}y{,a}ml,json{,c,5}}}]
+end_of_line = lf
+indent_size = 4
+tab_width = 4
+
+[*.cmake{,.in}]
+end_of_line = lf
+indent_size = 4
+tab_width = 4
+
+[{,{,*}.}{clang-{tidy,format},clangd}{,.*}]
+end_of_line = lf
+indent_size = 2
+tab_width = 2
+
+[*.{patch,diff,log}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset
+tab_width = unset
+
+[*.{sh,bash,vim,pl,in,nix,sb}]
+end_of_line = lf
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
+
+[.{env,shellcheck}rc]
+end_of_line = lf
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
+
+# prolog extension handles all this
+[*.{pro,prolog}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_size = 2
+tab_width = 2
+
+# git shit idk
+[.git{ignore,attributes}]
+indent_size = 2
+tab_width = 2
+
+# git makes gitmodules tabs idk why
+[{,.}git{modules,config}]
+indent_style = tab
+indent_size = 2
+tab_width = 2
+
+[.git/*{,/*}]
+indent_style = tab
+indent_size = 2
+tab_width = 2
+end_of_line = unset
+[.git/config]
+indent_size = 4
+tab_width = 4
+
+# windows scripts
+[*.{ps{,m,d}1}]
+end_of_line = crlf
+[*.{bat,cmd}]
+; needs to be unset because bat and cmd files use Windows 1252 encoding
+charset = unset
+end_of_line = crlf
+indent_style = tab
+indent_size = 3
+tab_width = 3
+
+# misc shell scripts w/o extensions
+[{,.}{github_deploy,profile,bashrc,pre-commit}]
+end_of_line = lf
+insert_final_newline = false
+indent_size = 2
+tab_width = 2
